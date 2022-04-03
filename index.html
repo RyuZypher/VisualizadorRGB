@@ -1,0 +1,143 @@
+<html>
+
+<head>
+
+<title>Cores</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1.0, width=device-width">
+		
+<script>
+				let vermelho = 0;
+				let verde = 0;
+				let azul = 0;
+				
+				let cor = "";
+				
+				function atualizarCor() {
+								vermelho = parseInt(document.getElementById("vermelho").value);
+								if (isNaN(vermelho) || vermelho < 0) {
+												vermelho = 0;
+								} else if (vermelho > 255) {
+												vermelho = 255;
+								}
+								
+								verde = parseInt(document.getElementById("verde").value);
+								
+								if (isNaN(verde) || verde < 0) {
+												verde = 0;
+								} else if (verde > 255) {
+												verde = 255;
+								}
+								
+								azul = parseInt(document.getElementById("azul").value);
+								
+								if (isNaN(azul) || azul < 0) {
+												azul = 0;
+								} else if (azul > 255) {
+												azul = 255
+								}
+								
+								const inputs = document.getElementById("inputs").children;
+								
+								for (let i = 0; i < inputs.length; i++) {
+												inputs[i].value = "";		
+								}
+				
+								cor = `rgb(${vermelho}, ${verde}, ${azul})`;
+												
+								texto.style.color = cor;
+								
+								const codigo = document.getElementById("codigo");
+								codigo.innerHTML = "" + cor;
+				}
+				
+</script>
+
+<style>
+				#texto {
+								margin-top: 20vh;
+								transition: color 1s; 
+								font-family: cursive;
+								font-size: 50px;
+								text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+								text-align: center;
+								
+				}
+				
+				#codigo {
+								margin-bottom: 5vh;
+								text-align: center;
+								
+				}
+				
+				hr {
+								margin-top: 20px;
+								margin-bottom: 20px;
+								
+				}
+
+				button {
+								border-radius: 20px;
+								width: 150px;
+								height: 50px;
+								background: linear-gradient( 
+												90deg, 
+												rgba(255, 0, 0, 1) 0%, 
+												rgba(255, 154, 0, 1) 10%, 
+												rgba(208, 222, 33, 1) 20%, 
+												rgba(79, 220, 74, 1) 30%, 
+												rgba(63, 218, 216, 1) 40%, 
+												rgba(47, 201, 226, 1) 50%, 
+												rgba(28, 127, 238, 1) 60%, 
+												rgba(95, 21, 242, 1) 70%, 
+												rgba(186, 12, 248, 1) 80%, 
+												rgba(251, 7, 217, 1) 90%, 
+												rgba(255, 0, 0, 1) 100% );
+							 color: white;
+							 font-size: 15px;
+							 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+							
+				}		
+				
+				input {
+								text-align: center;
+								width: 75%;
+								height: 30px;
+								border-radius: 20px;
+								margin-bottom: 5px;
+								
+				}
+				
+				div {
+								text-align: center;
+				
+				}
+</style>
+
+</head>
+
+<body>
+
+<p class="texto" id="texto">Lorem Ipsum</p>
+
+<p class="codigo" id="codigo">rgb(0, 0, 0)</p>
+
+<hr />
+
+	
+<div id="inputs">
+								<input type="number" id="vermelho" placeholder="Vermelho">
+								<input type="number" id="verde" placeholder="Verde">
+								<input type="number" id="azul" placeholder="Azul">		
+				
+</div>					
+
+<hr />
+
+<div>
+				<button onclick="atualizarCor()">Atualizar</button>
+</div>				
+
+</body>
+
+</html>
